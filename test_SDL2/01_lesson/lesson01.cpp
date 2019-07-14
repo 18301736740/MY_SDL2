@@ -28,8 +28,11 @@ int main( int argc, char* args[] )
     // 载入的图片生成SDL贴图材质
     texture  = SDL_CreateTextureFromSurface(renderer, hello);
     
+    //如果指定显示位置使用下面注释起来的两句
+    SDL_Rect dstrect = { 5, 5, 320, 240 };
+ 
     // 把贴图材质复制到渲染器
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
     
     // 显示出来  
     SDL_RenderPresent(renderer);
