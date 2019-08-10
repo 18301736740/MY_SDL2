@@ -182,8 +182,8 @@ int main(int argc,char *argv[])
     
     screen_w = pCodecCtx->width;
     screen_h = pCodecCtx->height;
-    //screen = SDL_CreateWindow("qun_player", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,screen_w, screen_h,SDL_WINDOW_OPENGL);
-    screen = SDL_CreateWindow("qun_player", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,screen_w, screen_h,SDL_WINDOW_FULLSCREEN_DESKTOP);
+    screen = SDL_CreateWindow("qun_player", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,screen_w, screen_h,SDL_WINDOW_OPENGL);
+    //screen = SDL_CreateWindow("qun_player", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,screen_w, screen_h,SDL_WINDOW_FULLSCREEN_DESKTOP);
     if(!screen)
     {
         printf("SDL: could not set video mode - exiting:%s\n");
