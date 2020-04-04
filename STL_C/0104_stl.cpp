@@ -48,10 +48,10 @@ struct Info
 	string name;
 	double score;
 
-#ifdef First // 两种使set排序的方式
-	bool operator < (const Info& a)const // 升序
+#ifdef First // 两种使set
+	bool operator < (const Info& a)const // 升序,priority_queue排序的方式,运算符重载<
 	{
-		return a.score < this->score;
+		return a.score > this->score;
 	}
 };
 
@@ -64,7 +64,7 @@ void StlC::stlSet()
 class cmp
 {
 	public:
-		bool operator () (const Info& a, const Info& b)const // 降序
+		bool operator () (const Info& a, const Info& b)const // 降序,重写仿函数
 		{
 			return a.score > b.score;
 		}
@@ -102,17 +102,23 @@ void StlC::stlSet()
 void StlC::stlMap()
 {
 	map<int, string> mapStudent;
-	
+
+    //第一种插入方式
 	mapStudent.insert(pair<int, string>(000, "student_zero"));
 
+    //第二种插入方式
 	mapStudent.insert(map<int, string>::value_type(001, "student_one"));
-	
+
+    //第三种插入方式
 	mapStudent[123] = "student_first";
 	mapStudent[456] = "student_second";
 
+    //创建Insert_Pair,检测是否成功插入
 	pair<map<int, string>::iterator, bool> Insert_Pair;
 	
 	Insert_Pair = mapStudent.insert(map<int, string>::value_type (001, "student_two"));
+
+    //因为都是001,所以没有成功插入
 	if(!Insert_Pair.second)
     	cout << "Error insert new element" << endl;	
 }
