@@ -415,6 +415,15 @@ void sdl_audio_callback(void *userdata, uint8_t *stream, int len)
         stream += copy_len;
         s_tx_idx += copy_len;
     }
+
+//    此处可以dump出多余的数据，说明正常情况下有抛弃一些数据，需要想办法存下等待第二次的时候输入。
+//    if((len == 0) && (s_tx_idx < s_audio_len))
+//    {
+//        FILE *pFile=fopen("output.pcm", "at+");
+//        fwrite((uint8_t *)s_audio_buf + s_tx_idx, 1, s_audio_len - s_tx_idx, pFile);
+//        fclose(pFile);
+//    }
+    
 }
 
 int main(int argc, char *argv[])
