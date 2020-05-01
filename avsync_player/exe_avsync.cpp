@@ -20,7 +20,7 @@
 #include <stdbool.h>
 #include <assert.h>
 
-#include "player.h"
+#include "exe_avsync.h"
 #include "frame.h"
 #include "packet.h"
 #include "demux.h"
