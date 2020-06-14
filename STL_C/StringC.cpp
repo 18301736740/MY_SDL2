@@ -1,7 +1,20 @@
 #include <string>
 #include <iostream>
+#include <string.h>
+#include <vector>
 
 using namespace std;
+
+//static const char *twoDecoderAPK[] = {"tver","alja","youtube","netflix","senwei"};
+static const std::vector<std::string> twoDecoderAPK = 
+{
+    "tver",
+    "alja",
+    "youtube",
+    "netflix",
+    "senwei",
+    "apk"
+};
 
 class StringC
 {
@@ -11,10 +24,28 @@ class StringC
 		void stringConstructor()const;
 		void stringFeature()const;
 		void stringFind()const;
+        bool IsTwoAPKFlow(const char *name)const;
 		
 	protected:
 	
 };
+
+bool StringC::IsTwoAPKFlow(const char *name)const
+{
+    string apk(name);
+    for(auto && i : twoDecoderAPK)
+    {
+        if(apk.find(i) != string::npos)
+//*****************************************
+//        const char * c_i = i.c_str();
+//        if(strstr(name,c_i) != NULL)
+//*****************************************
+//        if(strstr(name,i) != NULL)
+            return true;
+    }
+    return false;
+}
+
 
 /*
 * size_type find( const basic_string &str, size_type index );            // 返回str在字符串中第一次出现的位置（从index开始查找），如果没找到则返回string::npos
@@ -140,6 +171,7 @@ void StringC::stringConstructor()const
 
 int main(int argc, char* argv[])
 {
+    char *name = "com.tcl.net.apk";
 	//string 类构造函数demo
 	StringC stc;
 	//stc.stringConstructor();
@@ -149,6 +181,7 @@ int main(int argc, char* argv[])
 
 	// string 查找函数
 	stc.stringFind();
-	
+
+    cout <<"istwo = "<< stc.IsTwoAPKFlow(name) << endl;
 	return 0;
 } 
