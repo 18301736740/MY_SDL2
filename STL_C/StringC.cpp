@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string.h>
 #include <vector>
+#include <memory>
 
 using namespace std;
 
@@ -32,10 +33,10 @@ class StringC
 
 bool StringC::IsTwoAPKFlow(const char *name)const
 {
-    string apk(name);
+    shared_ptr<string> apk = make_shared<string>(name);
     for(auto && i : twoDecoderAPK)
     {
-        if(apk.find(i) != string::npos)
+        if(apk->find(i) != string::npos)
 //*****************************************
 //        const char * c_i = i.c_str();
 //        if(strstr(name,c_i) != NULL)
@@ -172,7 +173,7 @@ void StringC::stringConstructor()const
 int main(int argc, char* argv[])
 {
     char *name = "com.tcl.net.apk";
-    string apk(name);
+    shared_ptr<string> apk(new string(name));
 	//string 类构造函数demo
 	StringC stc;
 	//stc.stringConstructor();
