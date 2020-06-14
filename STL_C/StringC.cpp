@@ -25,7 +25,7 @@ class StringC
 		void stringFeature()const;
 		void stringFind()const;
         bool IsTwoAPKFlow(const char *name)const;
-		
+        
 	protected:
 	
 };
@@ -172,6 +172,7 @@ void StringC::stringConstructor()const
 int main(int argc, char* argv[])
 {
     char *name = "com.tcl.net.apk";
+    string apk(name);
 	//string 类构造函数demo
 	StringC stc;
 	//stc.stringConstructor();
@@ -181,6 +182,16 @@ int main(int argc, char* argv[])
 
 	// string 查找函数
 	stc.stringFind();
+//    auto f = [&]()->bool
+//        {
+//            for(auto && i : twoDecoderAPK)
+//            {
+//                if(apk.find(i) != string::npos)
+//                    return true;
+//            }
+//            return false;
+//        };
+//    cout <<"istwo = "<< f() << endl;
 
     cout <<"istwo = "<< stc.IsTwoAPKFlow(name) << endl;
 	return 0;
